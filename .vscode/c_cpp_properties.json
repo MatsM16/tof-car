@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "Q:\\Programs\\Arduino\\tools\\**",
+                "Q:\\Programs\\Arduino\\hardware\\arduino\\avr\\**",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/main"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "forcedInclude": [
+                "Q:\\Programs\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
+            ]
+        }
+    ],
+    "version": 4
+}
