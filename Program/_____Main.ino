@@ -1,20 +1,34 @@
-SensorController* controller;
+ICarController* controller;
 
 void setup()
 {
   //
+  // Card initialization
+  //
+  Serial.begin(9600);
+  SD.begin(4);
+  
+  //
   // Load current configuration from disc
   //
   
-  Config* cfg = NULL; //new Config(ReadFile("config.txt"));
-
+  Config* cfg = NULL; 
+  //cgf = new Config(ReadFile("config.txt"));
+  
   //
   // Initialize car components
   //
   Car* car = new Car(cfg);
   SensorReader* reader = new SensorReader(cfg);
 
-  controller = new SensorController(cfg, reader, car);
+  String mode = cfg->Get("MODE", "DEFAULT");
+
+  if (cfg != NULL && mode == "DEBUG")
+    controller = new DebugController();
+  else
+    controller = new SensorController();
+
+  controller->Init(cfg, reader, car);
 
   //
   // Initialization cleanup
