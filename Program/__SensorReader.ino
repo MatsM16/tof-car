@@ -1,3 +1,6 @@
+/*
+ * Handles reading and enterpreting of sonsor components
+*/
 class SensorReader
 {
   private:
@@ -5,14 +8,31 @@ class SensorReader
     DistSensor* dist_left;
     DistSensor* dist_right;
 
+    void setMinDistance(int dist)
+    {
+      dist_fwd->setMinDist(dist);
+      dist_left->setMinDist(dist);
+      dist_right->setMinDist(dist);
+    }
+
+    void setMaxDistance(int dist)
+    {
+      dist_fwd->setMaxDist(dist);
+      dist_left->setMaxDist(dist);
+      dist_right->setMaxDist(dist);
+    }
+
   public:
     SensorReader(Config* cfg)
     {
       if (cfg != NULL)
       {
-        dist_fwd = new DistSensor(0, 0);
-        dist_left = new DistSensor(0, 0);
+        dist_fwd   = new DistSensor(0, 0);
+        dist_left  = new DistSensor(0, 0);
         dist_right = new DistSensor(0, 0);
+
+        setMinDistance(0);
+        setMaxDistance(100);
       }
       else
       {
@@ -27,6 +47,9 @@ class SensorReader
         dist_right = new DistSensor(
           cfg->GetInt("PIN_SENSOR_DIST_RIGHT_IN", 0),
           cfg->GetInt("PIN_SENSOR_DIST_RIGHT_OUT", 0));
+
+        setMinDistance(cfg->GetInt("SENSOR_DIST_MIN", 0));
+        setMaxDistance(cfg->GetInt("SENSOR_DIST_MAX", 100));
       }
     }
   
