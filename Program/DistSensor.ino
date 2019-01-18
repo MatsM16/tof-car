@@ -1,3 +1,6 @@
+/*
+ * An object-oriented abstraction of the ultrasonic distance sensors
+*/
 class DistSensor
 {
   private:
@@ -18,6 +21,16 @@ class DistSensor
 
       clampMin = 0;
       clampMax = 100;
+    }
+
+    void setMinDist(int dist)
+    {
+      clampMin = dist;
+    }
+
+    void setMaxDist(int dist)
+    {
+      clampMax = dist;
     }
 
     int Read()
