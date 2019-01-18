@@ -1,3 +1,6 @@
+/*
+ * Handles car components (Motor and steeringwheel)
+*/
 class Car
 {
   private:

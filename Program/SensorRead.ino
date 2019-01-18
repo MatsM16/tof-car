@@ -1,3 +1,6 @@
+/*
+ * A data object containing a sensor package readout
+*/
 class SensorRead
 {
   private:

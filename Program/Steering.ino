@@ -1,3 +1,7 @@
+/*
+ * An object-oriented abstraction of a servo
+*/
+
 #include <Servo.h>
 
 class Steering

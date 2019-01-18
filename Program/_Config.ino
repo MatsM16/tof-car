@@ -1,3 +1,6 @@
+/*
+ * A handler for obtaining data from a config string.
+*/
 class Config
 {
   private:
@@ -46,5 +49,31 @@ class Config
         return true;
       else
         return false;
+    }
+
+    int* GetIntArray(String property)
+    {
+      String val = Get(property, "NOT_FOUND");
+
+      if (val == "NOT_FOUND")
+        return NULL;
+
+      int commaCount = 0;
+      for (int i = 0; i < val.length(); i++)
+        if (val[i] == ',')
+          commaCount++;
+
+      String arr[commaCount];
+      String builder = "";
+      int numberIndex = 0;
+      for (int i = 0; i < val.length(); i++)
+      {
+        if (val[i] != ',')
+          builder += val[i];
+        else
+        {
+          
+        }
+      }
     }
 };
