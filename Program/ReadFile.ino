@@ -1,12 +1,5 @@
 #include <SD.h>
 
-void InitFileReader()
-{
-  //
-  // Not implemented
-  //
-}
-
 String ReadFile (char file[])
 {
   File fileStream = SD.open(file);
