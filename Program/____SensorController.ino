@@ -1,4 +1,4 @@
-class SensorController
+class SensorController : public ICarController
 {
   private:
     SensorReader* sensors;
@@ -12,7 +12,7 @@ class SensorController
     int powerFactorRight;
 
   public:
-    SensorController(Config* cfg, SensorReader* sensors, Car* car)
+    void Init(Config* cfg, SensorReader* sensors, Car* car)
     {
       this->sensors = sensors;
       this->car = car;
