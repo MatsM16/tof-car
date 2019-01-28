@@ -51,4 +51,9 @@ class DistSensor
 
         return val;
     }
+
+    float Read01()
+    {
+      return (float)(Read() - clampMin) / (float)(clampMax-clampMin);
+    }
 };
